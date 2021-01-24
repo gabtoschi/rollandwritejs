@@ -1,0 +1,40 @@
+#write-container {
+    height: 90vh;
+
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+#write-container .background,
+#write-container .foreground {
+    box-sizing: border-box;
+    width: 100%;
+    flex: none;
+}
+
+#write-container .foreground {
+    margin-left: -100%;
+}
+
+#write-canvas {
+    z-index: 2;
+}
+
+.board-image {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#toolbox {
+    height: 8vh;
+    width: 30vw;
+    position: fixed;
+    left: calc(50% - (30vw / 2));
+    top: calc(100vh - 8vh - 2vh) ;
+    z-index: 10;
+}
+
+.toolbox .btn-group {
+    background-color: #ffffff90;
+}
