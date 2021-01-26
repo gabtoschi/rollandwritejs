@@ -104,11 +104,15 @@ function changeDieImage(dieIndex) {
 function rerollAllDice() {
     for (let i = 0; i < diceImages.length; i++) {
         changeDieImage(i);
+        diceCounters[i].innerHTML = '0';
     }
 }
 
 function rerollDie(event) {
-    changeDieImage(parseInt(event.target.id.replace('reroll', '')));
+    const dieIndex = parseInt(event.target.id.replace('reroll', ''));
+
+    changeDieImage(dieIndex);
+    diceCounters[dieIndex].innerHTML = parseInt(diceCounters[dieIndex].innerHTML) + 1;
 }
 
 const diceTypes = {
@@ -119,6 +123,8 @@ const diceNames = ['default-dice', 'default-dice', 'default-dice', 'default-dice
 const diceImages = document.getElementsByClassName('dice');
 
 const diceContainer = document.getElementById('dice-container');
+const diceCounters = [].slice.call(document.getElementsByClassName('counter'));
+console.log(diceCounters);
 
 document.getElementById('reroll-all-button').onclick = rerollAllDice;
 [].slice.call(document.getElementsByClassName('reroll-button')).forEach(function(button) { button.onclick = rerollDie; })

@@ -52,7 +52,7 @@
     font-size: x-large;
 }
 
-.bi {
+.bi, .no-click {
     pointer-events: none;
 }
 
