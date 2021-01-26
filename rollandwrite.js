@@ -78,3 +78,36 @@ function changeTool(event) {
         }
     }
 }
+
+// ROLLING
+function getRandomElement(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
+function changeDieImage(dieIndex) {
+    diceImages[dieIndex].src = 'dice/' + diceNames[dieIndex] + '/' + getRandomElement(diceTypes[diceNames[dieIndex]]);
+}
+
+function rerollAllDice() {
+    for (let i = 0; i < diceImages.length; i++) {
+        changeDieImage(i);
+    }
+}
+
+function rerollDie(event) {
+    changeDieImage(parseInt(event.target.id.replace('reroll', '')));
+}
+
+const diceTypes = {
+    'default-dice': ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'],
+}
+
+const diceNames = ['default-dice', 'default-dice', 'default-dice', 'default-dice', 'default-dice'];
+const diceImages = document.getElementsByClassName('dice');
+
+const diceContainer = document.getElementById('dice-container');
+
+document.getElementById('reroll-all-button').onclick = rerollAllDice;
+[].slice.call(document.getElementsByClassName('reroll-button')).forEach(function(button) { button.onclick = rerollDie; })
+
+rerollAllDice();
