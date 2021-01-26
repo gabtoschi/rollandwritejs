@@ -53,13 +53,26 @@ function draw(event, byTouch = true) {
     writeContext.stroke();
 }
 
+function clearCanvas() {
+    writeContext.clearRect(0, 0, writeCanvas.width, writeCanvas.height);
+}
+
 // TOOLBOX
 const toolbox = document.getElementsByClassName('toolbox')[0];
 const toolboxButtons = document.getElementsByName('toolbox');
 
+const rulesUrl = 'https://en.wikipedia.org/wiki/Yacht_(dice_game)';
+
 toolboxButtons.forEach(function(button) {
     button.onclick = changeTool;
 })
+
+document.getElementById('clear').onclick = clearCanvas;
+document.getElementById('rules').onclick = openRules;
+
+function openRules() {
+    window.open(rulesUrl, '_blank');
+}
 
 function changeTool(event) {
     const newTool = event.target.value;
