@@ -117,9 +117,10 @@ function rerollDie(event) {
 
 const diceTypes = {
     'default-dice': ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'],
+    'ggj2021': ['1.png', '2.png', '3.png', '4.png', '5.png', '6.png'],
 }
 
-const diceNames = ['default-dice', 'default-dice', 'default-dice', 'default-dice', 'default-dice'];
+const diceNames = ['ggj2021', 'ggj2021', 'ggj2021', 'ggj2021', 'ggj2021', 'ggj2021'];
 const diceImages = document.getElementsByClassName('dice');
 
 const diceContainer = document.getElementById('dice-container');
